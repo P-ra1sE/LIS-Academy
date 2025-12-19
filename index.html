@@ -661,25 +661,20 @@
         const navLinks = document.querySelectorAll('#nav-links a');
 
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 60) {
-      navbar.classList.add(
-        "bg-white",
-        "shadow-sm",
-        "backdrop-blur-md",
-        "py-3"
-      );
-      navbar.classList.remove("bg-transparent", "py-6");
+            if (window.scrollY > 40) {
+                navbar.classList.add('bg-white', 'shadow-md', 'py-3');
+                navbar.classList.remove('py-4');
+                navTitle.classList.replace('nav-text-white', 'nav-text-dark');
+                navbar.classList.add('translate-y-0');
+                navLinks.forEach(link => link.classList.replace('nav-text-white', 'nav-text-dark'));
             } else {
-      navbar.classList.remove(
-        "bg-white",
-        "shadow-sm",
-        "backdrop-blur-md",
-        "py-3"
-      );
-      navbar.classList.add("bg-transparent", "py-6");
-    }
-        }
-        );
+                navbar.classList.remove('bg-white', 'shadow-md', 'py-3');
+                navbar.classList.add('py-4');
+                navTitle.classList.replace('nav-text-dark', 'nav-text-white');
+                navbar.classList.remove('translate-y-0');
+                navLinks.forEach(link => link.classList.replace('nav-text-dark', 'nav-text-white'));
+            }
+        });
     </script>
 </body>
 </html>
